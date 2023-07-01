@@ -1,0 +1,70 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh18000\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Time series:-\
+Values depend on time\
+\
+4 types:\
+Trend Component: which is a trend over a long period of time\
+Seasonal component: which is increase or decrease over short period of time.\
+Cyclical Component: which is long term wave like patterns\
+Noise or irregular component: unpredictable, random,\'94residual\'94 flunctuations\
+\
+\
+Stationary time series : the trend doesn\'92t change over time\'97>>ai model ->>predictive\
+\
+Non Stationary time series: change in mean value over time.\
+\
+\
+\
+Split up concept:->\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 There is a huge drop on 15/06/2015, this was the fifth split in Infosys Share price. If we take this whole data, the prediction might not be as expected as there is a split in between!\
+We have to either drop the data or adjust the values before split. Since the split is 2 for 1, we can normalize the data prior to split by dividing them by 2. (Old shares are half that of today's share).\
+# The Split\
+p1t.figure(figsize= (17,5))\
+stock_price = pd.concat([df.Close[: '2015-06-12']/2, df.Close['2015-06-15':]]) # adjustment\
+plt.plot (stock_price)\
+pit.title("Closing Price Adjusted", fontsize=20) \
+\
+\
+\
+\
+Method to predict:- linear regression (sklearn library) import linearregression\
+\
+\
+To convert x categorical values into integers use one hot encoder\
+Ex->>>>\
+import pandas as pd\
+from sklearn.preprocessing import OneHotEncoder\
+\
+# Create a sample dataset\
+data = pd.DataFrame(\{\
+    'color': ['red', 'green', 'blue', 'red', 'blue'],\
+    'size': ['small', 'medium', 'large', 'small', 'medium'],\
+    'shape': ['circle', 'rectangle', 'circle', 'rectangle', 'triangle']\
+\})\
+\
+# Create an instance of the OneHotEncoder\
+encoder = OneHotEncoder()\
+\
+# Fit the encoder on the categorical variables\
+encoder.fit(data[['color', 'size', 'shape']])\
+\
+# Transform the categorical variables into one-hot encoded features\
+encoded_features = encoder.transform(data[['color', 'size', 'shape']]).toarray()\
+\
+# Create a new dataframe with the encoded features\
+encoded_data = pd.DataFrame(encoded_features, columns=encoder.get_feature_names())\
+\
+# Concatenate the encoded dataframe with the original dataset\
+encoded_data = pd.concat([data, encoded_data], axis=1)\
+\
+# Print the encoded data\
+print(encoded_data)\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97}

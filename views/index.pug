@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Prediction </title>
+    <link rel="stylesheet" href="static/1.css">
+</head>
+<div id="blob"></div>
+<body>
+    <div class="title"><h1>Stock Market Prediction</h1></div>
+    <div class="para">This is a Project on Machine Learning Model which uses Linear Regression concept to predict the Closing Price of Stock of a particular day most precisely.</div>
+    
+    <form Id="form" action="/close" method="post" class="form" >
+        <div class="trade">
+            <select id="trader" name="trade_company" >
+                    <option>Choose a Trading company</option>
+                    <option value="Adaniports">Adaniports</option>
+                    <option value="Wipro">Wipro</option>
+            </select>
+        </div>
+        <div class="input">
+            <input type="inp" class="inp" id="prevclose" name="prevclose" placeholder="Prev close">
+            <input type="inp" class="inp" id="open" name="open" placeholder="Open">
+            <input type="inp" class="inp" id="high" name="high" placeholder="High">
+            <input type="inp" class="inp" id="low" name="low" placeholder="Low">
+            <input type="inp" class="inp" id="last" name="last" placeholder="Last Traded Price">
+            <input type="inp" class="inp" id="VWAP" name="VWAP" placeholder="VWAP">
+        </div>
+    <button id="submit">Submit</button>
+    </form>
+    
+    <footer>By Himalaya Gahlot</footer>
+    <script src="static/1.js"></script>
+    //- <script src="app.js"></script>
+</body>
+</html>
